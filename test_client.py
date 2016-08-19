@@ -4,7 +4,7 @@ import client
 
 
 class TestClient(TestCase):
-    @mock.patch('requests.request')
+    @mock.patch('requests.get')
     def test_get_example(self, mock_request):
         mocked_response = mock.Mock()
         mocked_response.status_code = 200
@@ -12,4 +12,4 @@ class TestClient(TestCase):
         mocked_response.json.return_value = expected_dict
         mock_request.return_value = mocked_response
         response = client.get_example()
-        self.assertEqual(response.json(), expected_dict)
+        self.assertEqual(response, expected_dict)
