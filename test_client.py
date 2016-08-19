@@ -5,7 +5,7 @@ import client
 
 class TestClient(TestCase):
     @mock.patch('requests.get')
-    def test_get_example(self, mock_request):
+    def test_get_example_mock(self, mock_request):
         mocked_response = mock.Mock()
         mocked_response.status_code = 200
         expected_dict = {"example": "foo"}
